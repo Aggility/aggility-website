@@ -1,0 +1,26 @@
+# Dependencias
+node_modules/
+vendor/
+
+# Entornos y secretos — nunca al repo
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Builds y artefactos
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+*.swp
