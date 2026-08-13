@@ -32,19 +32,31 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 > Acá vive lo efímero: en qué anda el proyecto hoy. Se actualiza seguido. Lo
 > permanente (el por qué, los invariantes, los descartes) va en `AGENTS.md`, no acá.
 
-**Fase: arranque completado, pre-código.**
+**Fase: Etapa 0 (andamiaje) cerrada. Arrancando Etapa 1 (identidad de marca).**
 
 - `DISCOVERY.md` llenado (acta de nacimiento). Clasificación: **núcleo puro**, sin módulos.
 - `AGENTS.md` (mitad proyecto), `PLAN.md` volcados desde el DISCOVERY.
 - `BUSINESS.md` borrado (módulo `negocio` no activo).
 - Copy acordada de la landing en `docs/landing-copy.md` (fuente de verdad del contenido).
+- Etapa 0 del `PLAN.md`: Next.js (App Router) + TypeScript + Tailwind v4 + shadcn/ui
+  inicializados. `npm run build`, `npm run lint` y `npm run typecheck` pasan en limpio.
+  Commit en `develop` (`a79077b`) y pusheado.
+- Assets de marca (logo, isotipo, mockups) en `design/`, subidos por el usuario. Paleta
+  exacta extraída por pixel: `#2A3546` (texto/marca), `#6283FF` (acento/check),
+  `#525F75` (secundario), `#CFD9FF` (tint claro), fondo oscuro `#0D1114`–`#191F26`.
+  Tipografía: **Inter** (confirmada por el usuario, no es una suposición).
 
-**Próximo paso:** Etapa 0 del `PLAN.md` — inicializar Next.js + Tailwind + shadcn/ui,
-lint/typecheck, deploy a Vercel. Antes de la UI (Etapa 1), extraer identidad de marca de
-Drive `05. Brand`.
+**Próximo paso:**
+- Deploy a Vercel: **pendiente de que el usuario importe el repo desde el dashboard**
+  (`vercel.com` → Import Project → `Aggility/aggility-website`). No requiere variables
+  de entorno todavía.
+- Etapa 1 del `PLAN.md`: volcar paleta + Inter a tokens de Tailwind y aplicarlos a un
+  componente de prueba (ya no depende de Drive — la marca se resolvió vía `design/`).
 
 **Pendientes / gotchas:**
-- El `git remote origin` apunta a `germansayago/harness.git` (quedó del template).
-  Cambiarlo a un repo propio de la web antes de commitear/pushear.
+- `next dev` (detecta agentes de IA vía `CLAUDECODE`/`CLAUDE_CODE` env var) intenta
+  escribir un bloque de aviso en `AGENTS.md` o `CLAUDE.md` si no lo encuentra. Ya se
+  insertó ese bloque a mano en este archivo (ver arriba) para que Next.js no toque
+  `AGENTS.md`. No borrar ese bloque.
 - Testimonios/cartera son un borrador sin depurar — no publicar sin confirmar datos y
   consentimiento.
