@@ -22,19 +22,22 @@ va primero.
 
 ### Etapa 0 — Andamiaje
 
-- [ ] Proyecto Next.js + TypeScript + Tailwind + shadcn/ui inicializado y corriendo local.
-- [ ] Repo con control de versiones (ya hay `.git`), `.gitignore` correcto.
-- [ ] Lint + typecheck configurados y pasando.
-- [ ] Deploy en Vercel conectado (preview automático por push).
+- [x] Proyecto Next.js + TypeScript + Tailwind + shadcn/ui inicializado y corriendo local.
+- [x] Repo con control de versiones, `.gitignore` correcto.
+- [x] Lint + typecheck configurados y pasando (`build` estático también pasa).
+- [ ] Deploy en Vercel conectado (preview automático por push). **Pendiente: importar el
+  repo desde el dashboard de Vercel — acción del usuario.**
 - **Cierra cuando:** `npm run build` + lint + typecheck pasan en limpio y hay un preview
-  publicado (aunque sea el placeholder).
+  publicado (aunque sea el placeholder). → Local ✅; falta solo el preview en Vercel.
 
-### Etapa 1 — Identidad de marca
+### Etapa 1 — Identidad de marca ✅
 
-- [ ] Extraer de Drive `05. Brand`: logo (SVG/PNG), paleta, tipografía.
-- [ ] Volcarlo a tokens de Tailwind (colores, fuentes) y componentes base de shadcn.
+- [x] Assets de marca (logo, isotipo, paleta, tipografía) — resueltos vía `design/`
+  (subidos por el usuario), no vía Drive. Paleta extraída por pixel; tipografía **Inter**
+  confirmada por el usuario.
+- [x] Volcado a tokens de Tailwind (colores, fuentes) y componentes base de shadcn.
 - **Cierra cuando:** el design system mínimo (colores + tipografía + logo) está aplicado
-  y se ve coherente en un componente de prueba.
+  y se ve coherente en un componente de prueba. → ✅ verificado renderizado.
 
 ### Etapa 2 — Contenido y secciones (la landing)
 

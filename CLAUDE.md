@@ -32,7 +32,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 > Acá vive lo efímero: en qué anda el proyecto hoy. Se actualiza seguido. Lo
 > permanente (el por qué, los invariantes, los descartes) va en `AGENTS.md`, no acá.
 
-**Fase: Etapa 0 (andamiaje) cerrada. Arrancando Etapa 1 (identidad de marca).**
+**Fase: Etapa 1 (identidad de marca) cerrada. Próximo: Etapa 2 (secciones de la landing).**
 
 - `DISCOVERY.md` llenado (acta de nacimiento). Clasificación: **núcleo puro**, sin módulos.
 - `AGENTS.md` (mitad proyecto), `PLAN.md` volcados desde el DISCOVERY.
@@ -47,11 +47,25 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   Tipografía: **Inter** (confirmada por el usuario, no es una suposición).
 
 **Próximo paso:**
+- **Etapa 2 del `PLAN.md`: las secciones de la landing**, en el orden de
+  `docs/landing-copy.md` (hero → dolor → servicios → por qué → gobtech → prueba social →
+  FAQ → cierre + form). Es alcance nuevo — arrancar limpio (hay otra sesión trabajando el
+  proyecto en paralelo; coordinar para no pisarse).
 - Deploy a Vercel: **pendiente de que el usuario importe el repo desde el dashboard**
   (`vercel.com` → Import Project → `Aggility/aggility-website`). No requiere variables
-  de entorno todavía.
-- Etapa 1 del `PLAN.md`: volcar paleta + Inter a tokens de Tailwind y aplicarlos a un
-  componente de prueba (ya no depende de Drive — la marca se resolvió vía `design/`).
+  de entorno todavía. (Es lo único que falta para cerrar del todo la Etapa 0.)
+
+**Revisión / checkpoint (2026-08-13):** estado sano y por el carril del método.
+- Gates verificados en verde con el código actual: `npm run typecheck`, `npm run lint` y
+  `npm run build` (build estático, prerender OK).
+- Identidad de marca verificada renderizada (pantalla de prueba Etapa 1): logo, tema
+  oscuro, paleta en tokens, Inter, botones shadcn. Coherente. **Etapa 1 committeada.**
+- Nota menor (no bloquea): en la pantalla de prueba, los swatches sacan color del CSS var
+  (valores dark) pero el hex impreso es el de light mode → no matchean. Es descartable: la
+  pantalla se reemplaza en la Etapa 2. No es un problema de la marca.
+- Decisión a confirmar: el sitio es **dark-only** (`class="dark"` fija en `<html>`); los
+  tokens de light mode quedan definidos sin usar. Coherente con la marca, pero confirmar
+  que es intencional.
 
 **Pendientes / gotchas:**
 - `next dev` (detecta agentes de IA vía `CLAUDECODE`/`CLAUDE_CODE` env var) intenta
