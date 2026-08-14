@@ -51,9 +51,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   `docs/landing-copy.md` (hero → dolor → servicios → por qué → gobtech → prueba social →
   FAQ → cierre + form). Es alcance nuevo — arrancar limpio (hay otra sesión trabajando el
   proyecto en paralelo; coordinar para no pisarse).
-- Deploy a Vercel: **pendiente de que el usuario importe el repo desde el dashboard**
-  (`vercel.com` → Import Project → `Aggility/aggility-website`). No requiere variables
-  de entorno todavía. (Es lo único que falta para cerrar del todo la Etapa 0.)
+- Deploy a Vercel: ✅ **hecho.** El usuario importó y conectó el repo (`Aggility/
+  aggility-website`) desde el dashboard — preview automático por push. Etapa 0 cerrada
+  del todo. Sin variables de entorno todavía (se agregan en Etapa 3 con la API key de
+  Resend, solo en el servidor).
 
 **Revisión / checkpoint (2026-08-13):** estado sano y por el carril del método.
 - Gates verificados en verde con el código actual: `npm run typecheck`, `npm run lint` y

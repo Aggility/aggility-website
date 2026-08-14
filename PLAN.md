@@ -25,10 +25,10 @@ va primero.
 - [x] Proyecto Next.js + TypeScript + Tailwind + shadcn/ui inicializado y corriendo local.
 - [x] Repo con control de versiones, `.gitignore` correcto.
 - [x] Lint + typecheck configurados y pasando (`build` estático también pasa).
-- [ ] Deploy en Vercel conectado (preview automático por push). **Pendiente: importar el
-  repo desde el dashboard de Vercel — acción del usuario.**
+- [x] Deploy en Vercel conectado (preview automático por push). Repo importado por el
+  usuario desde el dashboard de Vercel.
 - **Cierra cuando:** `npm run build` + lint + typecheck pasan en limpio y hay un preview
-  publicado (aunque sea el placeholder). → Local ✅; falta solo el preview en Vercel.
+  publicado. → ✅ **Etapa 0 cerrada del todo.**
 
 ### Etapa 1 — Identidad de marca ✅
 
