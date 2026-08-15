@@ -1,6 +1,7 @@
 import { Compass, Handshake, Target } from "lucide-react";
 
 import { Container } from "@/components/layout/container";
+import { SectionHeading } from "@/components/layout/section-heading";
 
 const REASONS = [
   {
@@ -25,22 +26,24 @@ const REASONS = [
 
 export function WhyAggility() {
   return (
-    <section className="bg-card/40 py-20 sm:py-28">
-      <Container className="flex flex-col items-center gap-12">
-        <h2 className="max-w-2xl text-center text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-          Más que un proveedor: tu aliado estratégico.
-        </h2>
+    <section className="border-y border-border/50 bg-card/30 py-20 sm:py-28">
+      <Container className="flex flex-col gap-12">
+        <SectionHeading
+          eyebrow="Por qué Aggility"
+          title="Más que un proveedor: tu aliado estratégico."
+        />
 
-        <div className="grid w-full gap-8 sm:grid-cols-3">
+        <div className="grid gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/40 sm:grid-cols-3">
           {REASONS.map(({ icon: Icon, title, description }) => (
-            <div key={title} className="flex flex-col items-center gap-3 text-center">
-              <div className="flex size-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <Icon className="size-6" aria-hidden />
+            <div
+              key={title}
+              className="flex flex-col gap-4 bg-background p-7"
+            >
+              <div className="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Icon className="size-5" aria-hidden />
               </div>
               <h3 className="text-lg font-semibold text-balance">{title}</h3>
-              <p className="text-sm text-muted-foreground text-balance">
-                {description}
-              </p>
+              <p className="text-muted-foreground">{description}</p>
             </div>
           ))}
         </div>

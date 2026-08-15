@@ -1,13 +1,8 @@
-import {
-  Bot,
-  Megaphone,
-  ShoppingCart,
-  Workflow,
-  Wrench,
-} from "lucide-react";
+import { Bot, Megaphone, ShoppingCart, Workflow, Wrench } from "lucide-react";
 
 import { Container } from "@/components/layout/container";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SectionHeading } from "@/components/layout/section-heading";
+import { SERVICES_SECTION_ID } from "@/lib/constants";
 
 const SERVICES = [
   {
@@ -44,29 +39,32 @@ const SERVICES = [
 
 export function Services() {
   return (
-    <section className="py-20 sm:py-28">
-      <Container className="flex flex-col items-center gap-12">
-        <h2 className="max-w-2xl text-center text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-          Tecnología que resuelve, no que estorba.
-        </h2>
-
-        <div className="grid w-full gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map(({ icon: Icon, title, description }) => (
-            <Card key={title} className="ring-border">
-              <CardHeader>
-                <div className="mb-2 flex size-10 items-center justify-center rounded-lg bg-accent text-accent-foreground">
-                  <Icon className="size-5" aria-hidden />
-                </div>
-                <CardTitle className="text-base font-semibold text-balance">
-                  {title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">{description}</p>
-              </CardContent>
-            </Card>
-          ))}
+    <section id={SERVICES_SECTION_ID} className="py-20 sm:py-28">
+      <Container className="grid gap-12 lg:grid-cols-[minmax(0,22rem)_1fr] lg:gap-20">
+        <div className="lg:sticky lg:top-24 lg:self-start">
+          <SectionHeading
+            eyebrow="Servicios"
+            title="Tecnología que resuelve, no que estorba."
+            lead="Cinco frentes, un mismo objetivo: mover tu negocio. No herramientas sueltas — resultados."
+          />
         </div>
+
+        <ul className="flex flex-col">
+          {SERVICES.map(({ icon: Icon, title, description }) => (
+            <li
+              key={title}
+              className="group flex gap-5 border-t border-border/60 py-7 last:border-b"
+            >
+              <div className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-border/70 bg-card text-primary transition-colors group-hover:border-primary/50">
+                <Icon className="size-5" aria-hidden />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <h3 className="text-lg font-semibold text-balance">{title}</h3>
+                <p className="text-muted-foreground">{description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </Container>
     </section>
   );

@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Container } from "@/components/layout/container";
+import { SectionHeading } from "@/components/layout/section-heading";
 
 const FAQS = [
   {
@@ -37,12 +38,12 @@ const FAQS = [
 export function Faq() {
   return (
     <section className="py-20 sm:py-28">
-      <Container className="flex flex-col items-center gap-10">
-        <h2 className="text-center text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-          Preguntas frecuentes
-        </h2>
+      <Container className="grid gap-12 lg:grid-cols-[minmax(0,20rem)_1fr] lg:gap-20">
+        <div className="lg:sticky lg:top-24 lg:self-start">
+          <SectionHeading eyebrow="Dudas" title="Preguntas frecuentes." />
+        </div>
 
-        <Accordion className="w-full max-w-2xl">
+        <Accordion className="w-full">
           {FAQS.map(({ question, answer }, index) => (
             <AccordionItem key={question} value={`faq-${index}`}>
               <AccordionTrigger>{question}</AccordionTrigger>

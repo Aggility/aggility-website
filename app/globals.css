@@ -128,3 +128,37 @@
     @apply font-sans;
   }
 }
+
+/* --- Lenguaje visual Aggility (dark-only) --- */
+
+/* Palabra/acento con degradé del primario — usar con moderación */
+.text-gradient {
+  background: linear-gradient(92deg, var(--primary), #aebeff 60%, var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Grilla técnica de fondo, difuminada hacia los bordes. Da profundidad al negro. */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, color-mix(in oklch, var(--foreground) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 6%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(75% 60% at 30% 0%, #000 8%, transparent 72%);
+  mask-image: radial-gradient(75% 60% at 30% 0%, #000 8%, transparent 72%);
+}
+
+/* Glow de acento reutilizable */
+.glow {
+  background: radial-gradient(60% 55% at 30% 0%, color-mix(in oklch, var(--primary) 24%, transparent), transparent 70%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lift {
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  }
+  .lift:hover {
+    transform: translateY(-3px);
+  }
+}

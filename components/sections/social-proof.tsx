@@ -1,76 +1,75 @@
-import { Container } from "@/components/layout/container";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import {
+  Building2,
+  CalendarCheck,
+  Landmark,
+  ShoppingBag,
+  Sprout,
+} from "lucide-react";
 
-// Datos placeholder: la cartera real (Brujo Coffee, Insurio, Ingraf, Pampa
-// Start, Tracestory, Mashua, El Garage, Gobierno de Río Cuarto, Gobierno de
-// Achiras) es un borrador sin depurar — nombres, cargos, consentimiento y el
-// dato duro (número real) están sin confirmar. Ver docs/landing-copy.md §6 y
-// AGENTS.md "Pendientes / gotchas". No reemplazar por datos reales sin que
-// dirección confirme cada testimonio.
-const PLACEHOLDER_TESTIMONIALS = [
+import { Container } from "@/components/layout/container";
+import { SectionHeading } from "@/components/layout/section-heading";
+
+// v1: sin testimonios (los datos reales — nombres, cargos, consentimiento — son
+// un borrador sin depurar; ver docs/landing-copy.md §6). En lugar de placeholders
+// que en producción se ven poco serios, mostramos las verticales reales donde
+// Aggility genera impacto. Casos y testimonios reales entran en v2.
+const VERTICALS = [
   {
-    quote:
-      "Testimonio a confirmar — mensaje breve con un resultado medible del proyecto.",
-    name: "Nombre Apellido",
-    role: "Cargo, Empresa (a confirmar)",
-    tag: "Cliente" as const,
+    icon: CalendarCheck,
+    title: "Eventos de gran escala & AgTech",
+    description:
+      "Convocatoria, medición y conversión para eventos y cumbres internacionales.",
   },
   {
-    quote:
-      "Testimonio a confirmar — mensaje breve con un resultado medible del proyecto.",
-    name: "Nombre Apellido",
-    role: "Cargo, Empresa (a confirmar)",
-    tag: "Aliado Estratégico" as const,
+    icon: Sprout,
+    title: "Agroindustria, salud animal & genética",
+    description:
+      "Digitalización de campo, diagnóstico con IA y pauta por temporada.",
   },
   {
-    quote:
-      "Testimonio a confirmar — mensaje breve con un resultado medible del proyecto.",
-    name: "Nombre Apellido",
-    role: "Cargo, Gobierno (a confirmar)",
-    tag: "Cliente" as const,
+    icon: ShoppingBag,
+    title: "E-commerce & retail",
+    description:
+      "Tiendas que convierten, integradas en tiempo real con el ERP.",
+  },
+  {
+    icon: Building2,
+    title: "Industria, gráfica & servicios B2B",
+    description:
+      "Presencia de marca y captación de leads calificados a escala nacional.",
+  },
+  {
+    icon: Landmark,
+    title: "Sector público & Gobtech",
+    description:
+      "Modernización de la gestión pública con productos SaaS probados.",
   },
 ];
 
 export function SocialProof() {
   return (
-    <section className="bg-card/40 py-20 sm:py-28">
-      <Container className="flex flex-col items-center gap-10">
-        <h2 className="max-w-2xl text-center text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-          Nuestra red de confianza.
-        </h2>
+    <section className="border-y border-border/50 bg-card/30 py-20 sm:py-28">
+      <Container className="flex flex-col gap-12">
+        <SectionHeading
+          eyebrow="Especialización"
+          title="Dónde generamos impacto."
+          lead="Combinamos tecnología, analítica y conocimiento del sector en las verticales donde más rinde."
+        />
 
-        <div className="grid w-full gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {PLACEHOLDER_TESTIMONIALS.map((testimonial, index) => (
-            <Card key={index} className="ring-border">
-              <CardHeader className="flex flex-row items-center justify-between gap-2">
-                <Badge variant="outline" className="font-normal">
-                  {testimonial.tag}
-                </Badge>
-                <Badge variant="secondary" className="font-normal text-muted-foreground">
-                  A confirmar
-                </Badge>
-              </CardHeader>
-              <CardContent className="flex flex-col gap-4">
-                <p className="text-sm text-muted-foreground italic">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
-                <div>
-                  <p className="text-sm font-semibold">{testimonial.name}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {testimonial.role}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {VERTICALS.map(({ icon: Icon, title, description }) => (
+            <div
+              key={title}
+              className="lift flex flex-col gap-3 rounded-2xl border border-border/60 bg-background p-6"
+            >
+              <div className="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Icon className="size-5" aria-hidden />
+              </div>
+              <h3 className="text-base font-semibold text-balance">{title}</h3>
+              <p className="text-sm text-muted-foreground">{description}</p>
+            </div>
           ))}
         </div>
-
-        <p className="max-w-2xl text-center text-xs text-muted-foreground">
-          Testimonios en proceso de confirmación con cada cliente (nombre,
-          cargo y consentimiento). No se publican datos reales hasta
-          verificarlos.
-        </p>
       </Container>
     </section>
   );

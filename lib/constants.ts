@@ -4,3 +4,5 @@ export const CTA_PRIMARY = "Agendá tu Diagnóstico Estratégico";
 export const CTA_GOBTECH = "Conocé nuestras soluciones para gobiernos";
 
 export const CONTACT_SECTION_ID = "contacto";
+export const SERVICES_SECTION_ID = "servicios";
+export const GOBTECH_SECTION_ID = "gobtech";

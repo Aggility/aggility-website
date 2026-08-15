@@ -32,7 +32,21 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 > Acá vive lo efímero: en qué anda el proyecto hoy. Se actualiza seguido. Lo
 > permanente (el por qué, los invariantes, los descartes) va en `AGENTS.md`, no acá.
 
-**Fase: Etapa 2 (secciones de la landing) cerrada. Próximo: Etapa 3 (formulario funcional con Resend).**
+**Fase: rediseño premium en branch `redesign/premium` (pendiente de review/merge). Después: Etapa 3 (formulario con Resend).**
+
+**Rediseño premium (2026-08-15) — branch `redesign/premium`:**
+- Dirección de arte aprobada por dirección (combinación de cierre) y documentada en
+  `docs/design-direction.md`. Motivo: la v1 se veía genérica (todo centrado, cards, negro
+  plano) por falta de brief de diseño.
+- Reescritas las 8 secciones + header/footer al nuevo lenguaje: asimétrico, escala
+  tipográfica, atmósfera (grilla + glow), acento con disciplina, menos cards. Piezas
+  compartidas nuevas: `eyebrow`, `section-heading`, `atmosphere`; utilidades en globals
+  (`.text-gradient`, `.grid-bg`, `.glow`, `.lift`).
+- **v1 sin números ni casos** (decisión: hoy solo logo + copy + look). Testimonios
+  placeholder reemplazados por las 5 verticales reales (sin nombres de cliente).
+- Copy del hero ajustada a "Resolvemos los problemas que te quitan el sueño" (aprobado).
+- Gates verdes (typecheck/lint/build); sin overflow horizontal en desktop ni mobile.
+- Baseline genérico preservado en `develop` (commit "Etapa 2 (baseline)").
 
 - `DISCOVERY.md` llenado (acta de nacimiento). Clasificación: **núcleo puro**, sin módulos.
 - `AGENTS.md` (mitad proyecto), `PLAN.md` volcados desde el DISCOVERY.
