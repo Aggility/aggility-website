@@ -43,15 +43,18 @@ va primero.
 
 Construir la página de una sola página, en el orden de la copy acordada (`docs/`):
 
-- [ ] Hero (titular + subtitular con ancla de credibilidad + CTA primario)
-- [ ] Espejo del problema ("Tu problema es nuestro punto de partida")
-- [ ] Servicios (una sola vez, verbo + beneficio)
-- [ ] Por qué Aggility (diferenciador)
-- [ ] Gobtech (sección propia)
-- [ ] Prueba social (testimonios — datos reales a confirmar, ver riesgos)
-- [ ] FAQ
-- [ ] Cierre + formulario
+- [x] Hero (titular + subtitular con ancla de credibilidad + CTA primario)
+- [x] Espejo del problema ("Tu problema es nuestro punto de partida")
+- [x] Servicios (una sola vez, verbo + beneficio)
+- [x] Por qué Aggility (diferenciador)
+- [x] Gobtech (sección propia)
+- [x] Prueba social (testimonios — **placeholder marcado**, datos reales a confirmar, ver riesgos)
+- [x] FAQ
+- [x] Cierre + formulario (UI montada; el envío real es Etapa 3)
 - **Cierra cuando:** todas las secciones están montadas, responsivas y con la copy final.
+  Montado y responsivo con la copy final de `docs/landing-copy.md`. Falta solo reemplazar
+  los testimonios placeholder por datos reales confirmados (no bloquea el cierre de esta
+  etapa, ver Estado actual en `CLAUDE.md`).
 
 ### Etapa 3 — Formulario funcional
 

@@ -32,7 +32,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 > Acá vive lo efímero: en qué anda el proyecto hoy. Se actualiza seguido. Lo
 > permanente (el por qué, los invariantes, los descartes) va en `AGENTS.md`, no acá.
 
-**Fase: Etapa 1 (identidad de marca) cerrada. Próximo: Etapa 2 (secciones de la landing).**
+**Fase: Etapa 2 (secciones de la landing) cerrada. Próximo: Etapa 3 (formulario funcional con Resend).**
 
 - `DISCOVERY.md` llenado (acta de nacimiento). Clasificación: **núcleo puro**, sin módulos.
 - `AGENTS.md` (mitad proyecto), `PLAN.md` volcados desde el DISCOVERY.
@@ -46,15 +46,40 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   `#525F75` (secundario), `#CFD9FF` (tint claro), fondo oscuro `#0D1114`–`#191F26`.
   Tipografía: **Inter** (confirmada por el usuario, no es una suposición).
 
+**Etapa 2 — hecho (2026-08-14):**
+- Las 8 secciones de `docs/landing-copy.md` montadas en orden: hero → espejo del
+  problema → servicios → por qué Aggility → gobtech → prueba social → FAQ → cierre +
+  form. Componentes en `components/sections/` (uno por sección) y `components/layout/`
+  (`SiteHeader` sticky con CTA, `SiteFooter` minimal con mailto).
+  - shadcn/ui sumado: `input`, `textarea`, `label`, `accordion`, `card`, `badge`.
+  - CTA primario centralizado en `lib/constants.ts` (`CTA_PRIMARY`) para no divergir
+    entre secciones — se repite idéntico como pide la copy.
+  - Micro-credibilidad opcional del hero (`[N] empresas...`) **omitida a propósito**: el
+    número es un dato real sin confirmar, no se inventa (comentado en el código).
+  - Prueba social con **testimonios placeholder marcados** ("A confirmar" + nota
+    explícita) — decisión tomada con el usuario, no se usan los nombres reales de la
+    cartera borrador para no atribuirles citas inventadas.
+  - Form de cierre (`ContactForm`, client component) ya intenta `POST /api/contact` y
+    maneja el error visiblemente (no hay éxito falso) — el route handler + Resend es
+    Etapa 3, todavía no existe, así que hoy siempre cae en el estado de error con
+    fallback a `mailto:hola@aggility.io`. Es intencional, no un bug.
+- Gates en verde: `npm run typecheck`, `npm run lint`, `npm run build`.
+- Verificado corriendo (`next dev`, Playwright headless): desktop 1440px y mobile 390px,
+  sin overflow, sin errores de consola. Se encontró y corrigió un bug real en el camino:
+  los `Button` con `render={<Link .../>}` (base-ui) necesitan `nativeButton={false}` o
+  Base UI tira un warning de semántica rota — aplicado en los 5 lugares que usan ese
+  patrón (`site-header`, `hero`, `problem-mirror`, `gobtech`).
+- `PLAN.md` Etapa 2 tildada.
+- **Sin commitear todavía** — queda para que el usuario revise antes de commitear.
+
 **Próximo paso:**
-- **Etapa 2 del `PLAN.md`: las secciones de la landing**, en el orden de
-  `docs/landing-copy.md` (hero → dolor → servicios → por qué → gobtech → prueba social →
-  FAQ → cierre + form). Es alcance nuevo — arrancar limpio (hay otra sesión trabajando el
-  proyecto en paralelo; coordinar para no pisarse).
+- **Etapa 3 del `PLAN.md`: formulario funcional.** Crear `app/api/contact/route.ts`
+  (server-side, API key de Resend solo ahí), validación cliente + servidor, log del
+  fallo (invariante #1). El frontend (`ContactForm`) ya está listo para consumir ese
+  endpoint sin cambios.
 - Deploy a Vercel: ✅ **hecho.** El usuario importó y conectó el repo (`Aggility/
-  aggility-website`) desde el dashboard — preview automático por push. Etapa 0 cerrada
-  del todo. Sin variables de entorno todavía (se agregan en Etapa 3 con la API key de
-  Resend, solo en el servidor).
+  aggility-website`) desde el dashboard — preview automático por push. Sin variables de
+  entorno todavía (se agregan en Etapa 3 con la API key de Resend, solo en el servidor).
 
 **Revisión / checkpoint (2026-08-13):** estado sano y por el carril del método.
 - Gates verificados en verde con el código actual: `npm run typecheck`, `npm run lint` y
